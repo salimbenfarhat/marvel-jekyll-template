@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<div class="home">
+  <h1 class="page-heading">Heroes and Villains</h1>
+
+  <ul class="post-list">
+    {% assign all_characters = site.heroes | concat: site.villains %}
+    
+    {% assign sorted_characters = all_characters | sort: 'date' | reverse | limit: 5 %}
+    
+    {% for character in sorted_characters %}
+      <li>
+        <h2>
+          <a class="character-link" href="{{ character.url | relative_url }}">{{ character.title | escape }}</a>
+        </h2>
+        <span class="character-meta">{{ character.date | date: "%b %-d, %Y" }}</span>
+        {{ character.content | markdownify }}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
