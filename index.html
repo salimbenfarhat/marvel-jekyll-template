@@ -13,7 +13,7 @@ layout: default
     {% for character in sorted_characters %}
       <li>
         <h2>
-          <a class="character-link" href="{{ character.url | site_url }}">{{ character.title | escape }}</a>
+          <a class="character-link" href="{{ site.url }}/{{ character.url | relative_url }}">{{ character.title | escape }}</a>
         </h2>
         <span class="character-meta">{{ character.date | date: "%b %-d, %Y" }}</span>
         {{ character.content | markdownify }}
