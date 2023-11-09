@@ -1,0 +1,9 @@
+---
+layout: default
+---
+
+<h1>All Heroes</h1>
+
+{% for hero in site.heroes %}
+  <h2>{{ hero.title }}</h2>
+{% endfor %}
